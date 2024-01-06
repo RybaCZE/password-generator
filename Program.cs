@@ -56,6 +56,7 @@ namespace password_gen {
             }
         }
 
+
         static internal string Generate(int length) {
             int minValue = 33;
             int maxValue = 126;
