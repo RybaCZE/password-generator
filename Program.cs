@@ -30,9 +30,14 @@ namespace password_gen {
                 System.Environment.Exit(0);
             }
             string temp;
-            if (convert_to_int(args[0]) is int length) {
-                temp = generate(length);
+            if (args[0] == "-D") {
+                temp = generate(15);
                 Console.WriteLine(temp);
+            } else {
+                if (convert_to_int(args[0]) is int length) {
+                    temp = generate(length);
+                    Console.WriteLine(temp);
+                }
             }
             copy_to_clipboard(temp);
         }
@@ -76,8 +81,9 @@ namespace password_gen {
             }
         }
         static void print_help() {
-            Console.WriteLine("Usage: pgen [length]");
             Console.WriteLine("Generates a random password of the specified length.");
+            Console.WriteLine("Usage: pgen [length]");
+            Console.WriteLine("generate random string with default length(15 chars): pgen -D");
         }
 
     }
